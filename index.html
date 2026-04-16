@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js" type="module"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, #f7c7db 0%, #faf9f6 60%, #ffffff 100%);
+        }
+        model-viewer {
+            width: 100%;
+            height: 600px;
+            --poster-color: transparent;
+        }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-dim": "#770326",
+                        "secondary-dim": "#505262",
+                        "on-surface": "#303330",
+                        "on-tertiary-fixed": "#413200",
+                        "on-secondary-container": "#525464",
+                        "primary-container": "#f7c7db",
+                        "on-error-container": "#68001f",
+                        "on-primary-fixed": "#4c2c3c",
+                        "on-background": "#303330",
+                        "inverse-on-surface": "#9d9d9a",
+                        "on-tertiary": "#fff8ef",
+                        "surface-container-high": "#e8e8e4",
+                        "outline-variant": "#b1b2af",
+                        "error-container": "#f76a80",
+                        "on-primary": "#fff7f8",
+                        "tertiary": "#745c00",
+                        "surface-bright": "#faf9f6",
+                        "surface": "#faf9f6",
+                        "primary-dim": "#6c4959",
+                        "tertiary-fixed-dim": "#e6c047",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-dim": "#665100",
+                        "tertiary-container": "#f5ce53",
+                        "inverse-primary": "#f7c7db",
+                        "primary-fixed-dim": "#e9bacd",
+                        "surface-container-highest": "#e1e3df",
+                        "surface-variant": "#e1e3df",
+                        "on-tertiary-container": "#584500",
+                        "on-secondary-fixed-variant": "#5c5e6e",
+                        "on-surface-variant": "#5d605c",
+                        "error": "#ac3149",
+                        "surface-container": "#eeeeea",
+                        "tertiary-fixed": "#f5ce53",
+                        "on-tertiary-fixed-variant": "#634e00",
+                        "on-secondary-fixed": "#404251",
+                        "surface-tint": "#795465",
+                        "outline": "#797b78",
+                        "on-error": "#fff7f7",
+                        "secondary": "#5c5e6e",
+                        "inverse-surface": "#0d0f0d",
+                        "background": "#faf9f6",
+                        "primary": "#795465",
+                        "secondary-fixed": "#e6e6fa",
+                        "surface-container-low": "#f4f4f0",
+                        "on-secondary": "#faf8ff",
+                        "secondary-container": "#e6e6fa",
+                        "primary-fixed": "#f7c7db",
+                        "on-primary-fixed-variant": "#6c4858",
+                        "surface-dim": "#d9dbd6",
+                        "on-primary-container": "#613f4f",
+                        "secondary-fixed-dim": "#d8d8ec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-[24px] flex justify-between items-center px-12 py-6 w-full shadow-none">
+<div class="text-2xl font-serif italic text-rose-900 dark:text-rose-100">Little Lace</div>
+<div class="hidden md:flex space-x-8 font-serif text-sm tracking-wide uppercase font-medium">
+<a class="text-rose-900 dark:text-rose-100 border-b border-yellow-600/40 pb-1 hover:opacity-80 transition-all duration-300" href="#">Collections</a>
+<a class="text-zinc-800 dark:text-zinc-400 hover:text-rose-700 dark:hover:text-rose-200 transition-colors hover:opacity-80 transition-all duration-300" href="#">Bespoke</a>
+<a class="text-zinc-800 dark:text-zinc-400 hover:text-rose-700 dark:hover:text-rose-200 transition-colors hover:opacity-80 transition-all duration-300" href="#">Atelier</a>
+<a class="text-zinc-800 dark:text-zinc-400 hover:text-rose-700 dark:hover:text-rose-200 transition-colors hover:opacity-80 transition-all duration-300" href="#">Our Story</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-rose-900 dark:text-rose-200 hover:opacity-80 transition-all duration-300 scale-95 active:scale-100 transition-transform">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="text-rose-900 dark:text-rose-200 hover:opacity-80 transition-all duration-300 scale-95 active:scale-100 transition-transform relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+</div>
+</nav>
+<main class="min-h-screen hero-gradient pt-24 overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[calc(100vh-6rem)]">
+<!-- Hero Content -->
+<div class="lg:col-span-5 z-10 space-y-8 py-12 lg:py-0">
+<div class="space-y-4">
+<span class="font-label text-xs tracking-[0.3em] uppercase text-primary font-semibold opacity-70">Colección Artesanal 2024</span>
+<h1 class="font-headline text-6xl md:text-7xl lg:text-8xl text-on-surface leading-[1.1] tracking-tight -ml-1">
+                        Arte en Cada <br/>
+<span class="italic text-primary-dim">Detalle</span>
+</h1>
+</div>
+<p class="font-body text-lg text-on-surface-variant max-w-md leading-relaxed">
+                    Piezas únicas que narran historias de herencia y maestría. Cada joya de Little Lace es forjada a mano por artesanos dedicados a la perfección del oro y la pureza de la perla.
+                </p>
+<div class="flex flex-wrap items-center gap-6 pt-4">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-full font-medium tracking-wide shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:scale-105 active:scale-100 transition-all duration-300">
+                        Explorar Colección
+                    </button>
+<button class="font-label text-sm tracking-widest uppercase text-on-surface border-b border-outline-variant/40 pb-1 hover:text-primary hover:border-primary transition-colors duration-300">
+                        Nuestra Historia
+                    </button>
+</div>
+<div class="pt-12 grid grid-cols-2 gap-8 border-t border-outline-variant/15">
+<div>
+<div class="font-headline text-2xl text-primary-dim">100%</div>
+<div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant opacity-60 mt-1">Hecho a Mano</div>
+</div>
+<div>
+<div class="font-headline text-2xl text-primary-dim">Sostenible</div>
+<div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant opacity-60 mt-1">Oro Ético</div>
+</div>
+</div>
+</div>
+<!-- 3D Model Viewer & Interactive Area -->
+<div class="lg:col-span-7 relative flex justify-center items-center">
+<!-- Background decorative elements -->
+<div class="absolute w-[600px] h-[600px] bg-secondary-container/30 rounded-full blur-3xl -z-10 animate-pulse"></div>
+<!-- Main 3D Model -->
+<div class="w-full relative cursor-grab active:cursor-grabbing">
+<model-viewer ar="" auto-rotate="" camera-controls="" class="drop-shadow-2xl" data-alt="a high-end luxury pearl necklace with intricate gold filigree accents floating against a soft pink aesthetic background" environment-image="neutral" exposure="1" interaction-prompt="auto" shadow-intensity="0.5" src="https://modelviewer.dev/shared-assets/models/Astronaut.glb">
+</model-viewer>
+<!-- Floating UI elements around the 3D model -->
+<div class="absolute top-1/4 -right-4 glass-panel bg-white/40 p-4 rounded-lg shadow-sm max-w-[160px]">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface">Material</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-tight">Oro de 18k y Perlas de Agua Dulce seleccionadas a mano.</p>
+</div>
+<div class="absolute bottom-1/4 -left-8 glass-panel bg-white/40 p-4 rounded-lg shadow-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-lg">360</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface">Interactuar</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Artisanal Curator Bento Grid Section -->
+<section class="bg-surface py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16 flex flex-col items-center text-center">
+<h2 class="font-headline text-4xl text-on-surface mb-4 italic">Selección del Atelier</h2>
+<div class="w-24 h-px bg-tertiary-fixed-dim"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+<div class="md:col-span-8 bg-surface-container-low rounded-lg overflow-hidden group relative">
+<img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="close-up of diamond rings on a silk fabric background with soft romantic lighting and warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGBEOr8su4i9o21kDS11sl_qNwGjRU2LE5eqW-62_HRrM6A2BDg4c4WTbzk3ljjgo-2Uqh0-YR9wWHJuHmGto8lVmQHrOyu1tzopbXurnInuyPQRpkCD3HzaxcZ2hilRJ5qffPPJzxHHMivSTxJDj4HnKpadEmITEQ8VIXsTAZP6qW-sag9u9YKxARGwWy2Wnczv7LOWaEs6TqvGGQChdycnY3cMSpQ2ZoSwsSovsYa6EqJrLuKjDc7Glh_d2AAn-_114RKIY2GG_A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-white font-label text-xs tracking-widest uppercase">Anillos de Compromiso</span>
+<h3 class="text-white font-headline text-2xl mt-2">La Promesa</h3>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container rounded-lg overflow-hidden group relative">
+<img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="aesthetic display of gold earrings on a marble pedestal with dramatic shadows and minimalist styling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCieQmH1Gime1ox0s_Da3b1tb4Fsqx0RTFl0mFrKO_ngWSs8aEXWxZQBJKfkDKlf8GMwQcnZGVfbE0_rSNZ69c09-xxKXSHWUjEy8zhvhCokVfq5ybSKH4z1fOiCYucZkElK-B-QYcIz7dGeix9fg9RP95fa7GWt1ttG_IJo7A01SivCmm9ZWDrdN3QAY-ZjTwh_-DFqxcp36VHMJ4udNl8seQcNOGng6WKi_2IfRTtSlyXTnaN5-RmIxJVFw_P_txc2uKLf1apIsCq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-white font-label text-xs tracking-widest uppercase">Pendientes</span>
+<h3 class="text-white font-headline text-2xl mt-2">Gota de Oro</h3>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary-container/20 rounded-lg p-12 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">auto_awesome</span>
+<h3 class="font-headline text-2xl text-primary-dim mb-4">Piezas a Medida</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6">Colabora con nuestros maestros joyeros para crear una pieza tan única como tu historia.</p>
+<button class="text-primary font-bold text-xs tracking-widest uppercase border-b-2 border-primary/20 pb-1">Agendar Cita</button>
+</div>
+<div class="md:col-span-8 bg-surface-container-high rounded-lg overflow-hidden group relative">
+<img alt="" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="exquisite pearl bracelet styled with vintage lace and soft daylight filtering through a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTD6-ostgJJb2KP0PYDupfFgIksJoS0tEhBqvOSpo5fngnf6yf2wRzsyQGQi4ofDhdav5LU-8Yu5Mm0qwW_40n_wBVuJWg-hNY2p9Ip5wdDKe3G-rDf9Hx5Ouo5YzbUXJPBo4KMAntQPGldJ4dZPmNh2IFWLims38A-gLs_P50RKdNl2cWlbOgOvc7lBFmSPGvlWxeryEDQJ70BCEPUgsvcntrgqdhPOFwib_Ch7MnZhjgRl_UuvMZkseVIdm4ertuDyvsXz23iJb5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-white font-label text-xs tracking-widest uppercase">Brazaletes</span>
+<h3 class="text-white font-headline text-2xl mt-2">Elegancia Fluida</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-stone-50 dark:bg-zinc-900 w-full pt-20 pb-10 tonal-shift bg-stone-100 dark:bg-zinc-800 flat no-shadows">
+<div class="flex flex-col items-center gap-8 px-8 max-w-7xl mx-auto">
+<div class="text-lg font-serif italic text-rose-800 dark:text-rose-200">Little Lace Artisanal Jewelry</div>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-4">
+<a class="font-serif text-xs tracking-widest uppercase text-zinc-500 dark:text-zinc-400 hover:text-rose-800 dark:hover:text-rose-200 transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-serif text-xs tracking-widest uppercase text-zinc-500 dark:text-zinc-400 hover:text-rose-800 dark:hover:text-rose-200 transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-serif text-xs tracking-widest uppercase text-zinc-500 dark:text-zinc-400 hover:text-rose-800 dark:hover:text-rose-200 transition-colors opacity-80 hover:opacity-100" href="#">Shipping &amp; Returns</a>
+<a class="font-serif text-xs tracking-widest uppercase text-zinc-500 dark:text-zinc-400 hover:text-rose-800 dark:hover:text-rose-200 transition-colors opacity-80 hover:opacity-100" href="#">Contact Us</a>
+</div>
+<div class="flex gap-6 mt-4">
+<a class="text-rose-900 dark:text-rose-200 hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-rose-900 dark:text-rose-200 hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+<div class="w-full h-px bg-outline-variant/10 mt-8"></div>
+<div class="font-serif text-xs tracking-widest uppercase text-rose-900 dark:text-rose-200 opacity-60">
+                © 2024 Little Lace Artisanal Jewelry
+            </div>
+</div>
+</footer>
+</body></html>
