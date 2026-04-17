@@ -17,7 +17,7 @@ export default function Home() {
 
   // Componente del Selector de Materiales
   const MaterialPicker = () => (
-    <div className="absolute bottom-4 lg:bottom-8 left-1/2 -translate-x-1/2 glass-panel bg-white/60 p-4 lg:p-6 rounded-2xl shadow-xl border border-white/40 flex flex-col items-center gap-3 lg:gap-4 min-w-[280px] lg:min-w-[300px] z-20">
+    <div className="absolute top-4 lg:top-auto lg:bottom-8 left-1/2 -translate-x-1/2 glass-panel bg-white/60 p-4 lg:p-6 rounded-2xl shadow-xl border border-white/40 flex flex-col items-center gap-3 lg:gap-4 min-w-[280px] lg:min-w-[300px] z-20">
       <span className="text-[9px] lg:text-[10px] font-bold uppercase tracking-wider text-on-surface opacity-60">
         Personalizar Material
       </span>
@@ -46,13 +46,14 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen hero-gradient pt-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[calc(100vh-6rem)]">
+      
+      <main className="min-h-screen hero-gradient pt-24 relative">
+        <div className="max-w-7xl mx-auto px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[calc(100vh-6rem)] relative">
           
-          {/* COLUMNA IZQUIERDA (Desktop) / CONTENEDOR PRINCIPAL (Móvil) */}
+          {/* COLUMNA IZQUIERDA / MÓVIL */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             
-            {/* 1. Título y Descripción */}
+            {/* Título y Descripción */}
             <div className="space-y-4">
               <span className="hidden lg:block font-headline text-xs tracking-[0.3em] uppercase text-primary font-semibold opacity-70">
                 Colección Artesanal 2024
@@ -67,26 +68,26 @@ export default function Home() {
               </p>
             </div>
 
-            {/* 2. MODELO MÓVIL (Solo visible en Móvil, entre texto y botones) */}
-            <div className="lg:hidden w-full relative -mt-4 mb-16">
+            {/* MODELO MÓVIL (Visualizador 3D) */}
+            <div className="lg:hidden w-full relative -mt-4 mb-4">
               <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
               <JewelryViewer modelUrl="/models/ring.glb" color={selectedColor} />
               <MaterialPicker />
             </div>
 
-            {/* 3. Botones y Acciones */}
-            <div className="w-full lg:w-auto space-y-12">
+            {/* BOTONES DESKTOP (Ocultos en Móvil) */}
+            <div className="hidden lg:block w-full lg:w-auto space-y-12">
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-                <button className="w-full sm:w-auto bg-primary text-on-primary px-10 py-5 rounded-full font-medium tracking-wide shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:scale-105 active:scale-100 transition-all duration-300">
+                <button className="bg-primary text-on-primary px-10 py-5 rounded-full font-medium tracking-wide shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:scale-105 active:scale-100 transition-all duration-300">
                   Explorar Colección
                 </button>
-                <button className="hidden lg:block font-headline text-sm tracking-widest uppercase text-on-surface border-b border-outline-variant/40 pb-1 hover:text-primary hover:border-primary transition-colors duration-300">
+                <button className="font-headline text-sm tracking-widest uppercase text-on-surface border-b border-outline-variant/40 pb-1 hover:text-primary hover:border-primary transition-colors duration-300">
                   Nuestra Historia
                 </button>
               </div>
 
-              {/* Stats solo para Desktop */}
-              <div className="hidden lg:grid grid-cols-2 gap-8 border-t border-outline-variant/15 pt-8">
+              {/* Stats Desktop */}
+              <div className="grid grid-cols-2 gap-8 border-t border-outline-variant/15 pt-8">
                 <div>
                   <div className="font-headline text-2xl text-primary-dim">100%</div>
                   <div className="font-headline text-[10px] tracking-widest uppercase text-on-surface-variant opacity-60 mt-1">Hecho a Mano</div>
@@ -99,21 +100,27 @@ export default function Home() {
             </div>
           </div>
 
-          {/* COLUMNA DERECHA (Solo visible en Desktop) */}
-          <div className="hidden lg:flex lg:col-span-7 relative justify-center items-center">
-            {/* MANCHÓN ROSA RESTAURADO PARA DESKTOP */}
+          {/* MODELO DERECHA (Solo visible en Desktop) */}
+          <div className="hidden lg:flex lg:col-span-7 relative justify-center items-center h-full">
             <div className="absolute w-[600px] h-[600px] bg-secondary-container/30 rounded-full blur-3xl -z-10 animate-pulse"></div>
-            
             <div className="w-full relative">
               <JewelryViewer modelUrl="/models/ring.glb" color={selectedColor} />
               <MaterialPicker />
             </div>
           </div>
-
         </div>
       </main>
+
       <BentoGrid />
       <Footer />
+
+      {/* BOTÓN STICKY GLOBAL MÓVIL */}
+      {/* Fuera de main para que no tenga límite de altura y se mantenga hasta el final */}
+      <div className="lg:hidden fixed bottom-6 left-0 px-8 w-full z-[60] pointer-events-none">
+        <button className="pointer-events-auto w-full bg-primary text-on-primary py-5 rounded-full font-medium tracking-wide shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300">
+          Explorar Colección
+        </button>
+      </div>
     </>
   );
 }
